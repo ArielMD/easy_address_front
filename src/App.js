@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import CreateAddressPage from "./pages/createAddress";
+import ShowAddressPage from "./pages/showAddress";
+import ListddressesPage from "./pages/listAddresses";
+import UpdateAddressPage from "./pages/updateAddress/updateAddress";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<CreateAddressPage />} />
+          <Route exact path="/show/:id" element={<ShowAddressPage />} />
+          <Route exact path="/show/all" element={<ListddressesPage />} />
+          <Route exact path="/edit/:id" element={<UpdateAddressPage />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
